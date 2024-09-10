@@ -1,0 +1,42 @@
+int majImp(int a,int b){
+    while(a<b)
+    {
+      int p=0;
+      int imp=0;
+      for(int i=2;i*i<a;i++)
+      {
+          if(a%i==0&&i%2==0)
+          {
+              p+=i;
+          }
+          if(a%i==0&&(a/i)%2==0)
+          {
+              p+=a/i;
+          }
+          if(a%i==0&&i%2==1)
+          {
+              imp+=i;
+          }
+          if(a%i==0&&(a/i)%2==1)
+          {
+              imp+=a/i;
+          }
+      }
+      if(i*i==a)
+      {
+        if(i%2==0)
+        {
+            p+=i;
+        }
+        else
+        {
+            imp+=i;
+        }
+      }
+      if(imp>par)
+      {
+          return a;
+      }
+    }
+    return 0;
+}

@@ -1,0 +1,82 @@
+a)9
+b)7 8
+c)
+#include <iostream>
+
+int main()
+{
+    int n;
+    std::cin>>n;
+    int p=1,x;
+    for(int i=1;i<=n;i++)
+    {
+        std::cin>>x;
+        do
+        {
+            x=x/3;
+        }while(x>3);
+        if(x) 
+        {
+            p*=x;
+        }
+    }
+    std::cout<<p;
+    return 0;
+}
+d)
+ citește n
+ (număr natural nenul)
+ p->1
+┌cat  timp n>0 execută
+│ citește x
+│ (număr natural)
+│┌repetă
+││ x->[x/3]
+│└până când x≤3
+│┌dacă x≠0 atunci
+││ p->p*x
+│└■
+| n->n-1
+└■
+scrie p
+
+
+
+
+ex 3
+#include <fstream>
+#include <iostream>
+std::string nume="bac.txt";
+std::ifstream fin(nume);
+int v[1000001];
+int main()
+{
+    int lg=0,lgm=0,a,b,num=1,maxi;
+    fin>>a;//citesc primul nr pt al compara;
+    v[num]=a;
+    num++;
+    while(fin>>b&&b!=0)
+    {
+        v[num++]=b;
+        if(b==a+1)
+        {
+            lg++;
+        }
+        else
+        {
+            if(lg>lgm)
+            {
+                lgm=lg;
+                lg=0;
+                maxi=num;
+            }
+        }
+        a=b;
+    }
+    for(int i=maxi-1;i<lgm+maxi;i++)
+    {
+        std::cout<<v[i]<<' ';
+    }
+
+    return 0;
+}

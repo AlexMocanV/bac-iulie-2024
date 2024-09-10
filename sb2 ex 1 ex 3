@@ -73,10 +73,12 @@ int main()
         }
         a=b;
     }
+    bool ok=false;
     for(int i=maxi-1;i<lgm+maxi;i++)
     {
         std::cout<<v[i]<<' ';
+        ok=true;
     }
-
+    if(!ok)std::cout<<"nu exista";
     return 0;
 }

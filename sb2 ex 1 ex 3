@@ -48,16 +48,12 @@ ex 3
 #include <iostream>
 std::string nume="bac.txt";
 std::ifstream fin(nume);
-int v[1000001];
 int main()
 {
-    int lg=0,lgm=0,a,b,num=1,maxi;
-    fin>>a;//citesc primul nr pt al compara;
-    v[num]=a;
-    num++;
+    int lg=0,lgm=0,a,b,num=1,maxi,scad;
+    fin>>a;//citesc primul nr pt al compara
     while(fin>>b&&b!=0)
     {
-        v[num++]=b;
         if(b==a+1)
         {
             lg++;
@@ -68,17 +64,17 @@ int main()
             {
                 lgm=lg;
                 lg=0;
-                maxi=num;
+                scad=b;
             }
         }
         a=b;
     }
     bool ok=false;
-    for(int i=maxi-1;i<lgm+maxi;i++)
+    for(int i=scad;i<=scad+lgm;i++)
     {
-        std::cout<<v[i]<<' ';
+        std::cout<<i<<' ';
         ok=true;
     }
-    if(!ok)std::cout<<"nu exista";
+    if(!ok)std::cout<<"nu exista";//aproape bine
     return 0;
 }
